@@ -12,25 +12,25 @@ string console = "";
 
 class TextEditor {
 private:
-	// lineÀº ÀüÃ¼¿¡¼­ ¸î¹ø Â° lineÀÎÁö, word´Â ÇöÀç ¸î byteÀÎÁö¸¦ ÀúÀåÇÑ´Ù.
+	// lineì€ ì „ì²´ì—ì„œ ëª‡ë²ˆ ì§¸ lineì¸ì§€, wordëŠ” í˜„ì¬ ëª‡ byteì¸ì§€ë¥¼ ì €ì¥í•œë‹¤.
 	int line, word;
-	// text´Â test.txt ÆÄÀÏÀ» ÀúÀåÇÑ ¸®½ºÆ® ÀÌ´Ù
+	// textëŠ” test.txt íŒŒì¼ì„ ì €ì¥í•œ ë¦¬ìŠ¤íŠ¸ ì´ë‹¤
 	list<string> text;
-	// lineList´Â Ãâ·ÂÇÏ¸é¼­ Áö³ª°£ lineÀ» ±â·ÏÇÑ´Ù
+	// lineListëŠ” ì¶œë ¥í•˜ë©´ì„œ ì§€ë‚˜ê°„ lineì„ ê¸°ë¡í•œë‹¤
 	list<int> lineList;
-	// startIterÀÇ °æ¿ì Ãâ·Â½Ã ½ÃÀÛÇÏ´Â ºÎºĞ, endIter´Â ³¡³ª´Â ºÎºĞÀ» ÀúÀåÇÏ°í,
-	// pageIterÀÇ °æ¿ì page¸¦ ³Ñ¾î°¥ ¶§ ÀÌÀü startIter¸¦ ÀúÀåÇÏ´Â ¿ªÇÒÀ» ÇÑ´Ù.
+	// startIterì˜ ê²½ìš° ì¶œë ¥ì‹œ ì‹œì‘í•˜ëŠ” ë¶€ë¶„, endIterëŠ” ëë‚˜ëŠ” ë¶€ë¶„ì„ ì €ì¥í•˜ê³ ,
+	// pageIterì˜ ê²½ìš° pageë¥¼ ë„˜ì–´ê°ˆ ë•Œ ì´ì „ startIterë¥¼ ì €ì¥í•˜ëŠ” ì—­í• ì„ í•œë‹¤.
 	list<list<string>::iterator> pageIter;
 	list<string>::iterator startIter;
 	list<string>::iterator endIter;
 
 public:
-	// »ı¼ºÀÚ°¡ ºÒ¸®¸é line°ú word°¡ ÃÊ±âÈ­µÈ´Ù.
+	// ìƒì„±ìê°€ ë¶ˆë¦¬ë©´ lineê³¼ wordê°€ ì´ˆê¸°í™”ëœë‹¤.
 	TextEditor() {
 		line = 0;
 		word = 0;
 	}
-	// ÇöÀç line(¸î¹ø Â° line±îÁö Ãâ·ÂµÇ¾ú´ÂÁö)¸¦ ¹İÈ¯ÇÑ´Ù.
+	// í˜„ì¬ line(ëª‡ë²ˆ ì§¸ lineê¹Œì§€ ì¶œë ¥ë˜ì—ˆëŠ”ì§€)ë¥¼ ë°˜í™˜í•œë‹¤.
 	int getLine() {
 		return line;
 	}
@@ -49,9 +49,9 @@ public:
 
 class View {
 public:
-	// ¾Æ·¡ÀÇ print ÇÔ¼öµéÀº Á¤ÇØÁø ±Ô°İ¿¡ ¸Â°Ô È­¸é¿¡ °ªÀ» Ãâ·ÂÇÏ°Ô µÈ´Ù.
+	// ì•„ë˜ì˜ print í•¨ìˆ˜ë“¤ì€ ì •í•´ì§„ ê·œê²©ì— ë§ê²Œ í™”ë©´ì— ê°’ì„ ì¶œë ¥í•˜ê²Œ ëœë‹¤.
 	void printMenu() {
-		cout << "n: ´ÙÀ½ÆäÀÌÁö, p: ÀÌÀüÆäÀÌÁö, i: »ğÀÔ, d: »èÁ¦, c: º¯°æ, s: Ã£±â, t: ÀúÀåÈÄ Á¾·á" << endl;
+		cout << "n: ë‹¤ìŒí˜ì´ì§€, p: ì´ì „í˜ì´ì§€, i: ì‚½ì…, d: ì‚­ì œ, c: ë³€ê²½, s: ì°¾ê¸°, t: ì €ì¥í›„ ì¢…ë£Œ" << endl;
 	}
 
 	void print__() {
@@ -59,28 +59,28 @@ public:
 	}
 
 	void printUserInput() {
-		cout << "ÀÔ·Â: ";
+		cout << "ì…ë ¥: ";
 	}
 
 	void printConsole(string console) {
-		cout << "(ÄÜ¼Ö¸Ş½ÃÁö) " << console << endl;
+		cout << "(ì½˜ì†”ë©”ì‹œì§€) " << console << endl;
 	}
 };
 
 class Controller {
 private:
-	// Controller´Â model(textEditor)°ú Viewer(View)¸¦ °®´Â´Ù.
+	// ControllerëŠ” model(textEditor)ê³¼ Viewer(View)ë¥¼ ê°–ëŠ”ë‹¤.
 	TextEditor textEditor;
 	View view;
 
 public:
-	// »ı¼ºÀÚ¸¦ ÅëÇØ ÀÔ·Â¹ŞÀº model °ú viewer¸¦ ÃÊ±âÈ­½ÃÄÑÁØ´Ù.
+	// ìƒì„±ìë¥¼ í†µí•´ ì…ë ¥ë°›ì€ model ê³¼ viewerë¥¼ ì´ˆê¸°í™”ì‹œì¼œì¤€ë‹¤.
 	Controller(TextEditor _textEditor, View _view) {
 		textEditor = _textEditor;
 		view = _view;
 	}
 
-	// orderµé°ú consoleÀÇ °ªÀ» ÃÊ±âÈ­½ÃÄÑÁÖ´Â ÇÔ¼öÀÌ´Ù.
+	// orderë“¤ê³¼ consoleì˜ ê°’ì„ ì´ˆê¸°í™”ì‹œì¼œì£¼ëŠ” í•¨ìˆ˜ì´ë‹¤.
 	void setDefault() {
 		console = "";
 		orderF = "";
@@ -88,15 +88,15 @@ public:
 		orderT = "";
 	}
 
-	// ÇÁ·Î±×·¥ÀÌ ½ÇÇàµÇ¸é ½ÇÀç·Î ÁÖ ¿ªÇÒÀ» ¸Â´Â ÇÔ¼öÀÌ´Ù.
+	// í”„ë¡œê·¸ë¨ì´ ì‹¤í–‰ë˜ë©´ ì‹¤ì¬ë¡œ ì£¼ ì—­í• ì„ ë§ëŠ” í•¨ìˆ˜ì´ë‹¤.
 	void run() {
 		ifstream readFile;
 		list<string> textList;
 
 		readFile.open("test.txt");
 
-		// test.txt ÆÄÀÏÀ» ¿­°í ´Ü¾î ÇÏ³ªÇÏ³ª¾¿ textList¿¡ ÀúÀåÇÑ´Ù.
-		// ¸¸¾à ÆÄÀÏ ÀĞ±â¸¦ ½ÇÆĞÇÏ¸é ÇÁ·Î±×·¥ÀÌ Á¾·áµÈ´Ù.
+		// test.txt íŒŒì¼ì„ ì—´ê³  ë‹¨ì–´ í•˜ë‚˜í•˜ë‚˜ì”© textListì— ì €ì¥í•œë‹¤.
+		// ë§Œì•½ íŒŒì¼ ì½ê¸°ë¥¼ ì‹¤íŒ¨í•˜ë©´ í”„ë¡œê·¸ë¨ì´ ì¢…ë£Œëœë‹¤.
 		string word;
 		if (!readFile.fail()) {
 			while (readFile >> word) {
@@ -108,8 +108,8 @@ public:
 			textEditor.setSize();
 			
 			textEditor.showPage();
-			// do_while¹®À» ÅëÇØ »ç¿ëÀÚÀÇ ¸í·ÉÀ» ¹Ş°í ¾Ë¸ÂÀº ½ÇÇàÀ» ÇÏ°ÔµÈ´Ù.
-			// »ç¿ëÀÚ°¡ t¸¦ ÀÔ·ÂÇÏ¿© ÀúÀåÈÄ Á¾·á¸¦ ¸í·ÉÇÏ°Å³ª, ctrl-z¸¦ ÅëÇØ eof¸¦ ½ÇÇàÇÏ¸é ÇÁ·Î±×·¥ÀÌ Á¾·áµÈ´Ù.
+			// do_whileë¬¸ì„ í†µí•´ ì‚¬ìš©ìì˜ ëª…ë ¹ì„ ë°›ê³  ì•Œë§ì€ ì‹¤í–‰ì„ í•˜ê²Œëœë‹¤.
+			// ì‚¬ìš©ìê°€ të¥¼ ì…ë ¥í•˜ì—¬ ì €ì¥í›„ ì¢…ë£Œë¥¼ ëª…ë ¹í•˜ê±°ë‚˜, ctrl-zë¥¼ í†µí•´ eofë¥¼ ì‹¤í–‰í•˜ë©´ í”„ë¡œê·¸ë¨ì´ ì¢…ë£Œëœë‹¤.
 			do {
 				view.print__();
 				view.printMenu();
@@ -160,7 +160,7 @@ public:
 					textEditor.terminate();
 					return;
 				default:
-					console = "Á¸ÀçÇÏÁö ¾Ê´Â ¸í·É¾îÀÔ´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØ ÁÖ½Ê½Ã¿À.";
+					console = "ì¡´ì¬í•˜ì§€ ì•ŠëŠ” ëª…ë ¹ì–´ì…ë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•´ ì£¼ì‹­ì‹œì˜¤.";
 				}
 
 			} while (!cin.eof());
@@ -170,7 +170,7 @@ public:
 
 };
 
-// text¸¦ ÀĞÀº ÀÌÈÄ ÃÊ±âÈ­ °¡´ÉÇÑ º¯¼öµéÀ» ÃÊ±âÈ­ ÇÑ´Ù.
+// textë¥¼ ì½ì€ ì´í›„ ì´ˆê¸°í™” ê°€ëŠ¥í•œ ë³€ìˆ˜ë“¤ì„ ì´ˆê¸°í™” í•œë‹¤.
 void TextEditor::setModel(list<string> _text) {
 	setSize();
 	text = _text;
@@ -178,9 +178,9 @@ void TextEditor::setModel(list<string> _text) {
 	endIter = text.begin();
 }
 
-// ÇöÀç ÁöÁ¤µÈ ÆäÀÌÁö¸¦ Ãâ·ÂÇÏ´Â ±â´ÉÀ» ÇÑ´Ù.
-// ½ÃÀÛ iterator ºÎÅÍ 20line, 75byteÀÇ ±Ô°İ¿¡ ¸Â°Ô ´Ü¾î¸¦ Ãâ·ÂÇÑ´Ù.
-// Á¤ÇØÁø line±îÁöÀÇ Ãâ·ÂÀ» ¸¶Ä¡°Å³ª, textÀÇ ¸¶Áö¸· ´Ü¾î¸¦ Ãâ·ÂÇÑ °æ¿ì ÇÔ¼ö¸¦ Á¾·áÇÑ´Ù.
+// í˜„ì¬ ì§€ì •ëœ í˜ì´ì§€ë¥¼ ì¶œë ¥í•˜ëŠ” ê¸°ëŠ¥ì„ í•œë‹¤.
+// ì‹œì‘ iterator ë¶€í„° 20line, 75byteì˜ ê·œê²©ì— ë§ê²Œ ë‹¨ì–´ë¥¼ ì¶œë ¥í•œë‹¤.
+// ì •í•´ì§„ lineê¹Œì§€ì˜ ì¶œë ¥ì„ ë§ˆì¹˜ê±°ë‚˜, textì˜ ë§ˆì§€ë§‰ ë‹¨ì–´ë¥¼ ì¶œë ¥í•œ ê²½ìš° í•¨ìˆ˜ë¥¼ ì¢…ë£Œí•œë‹¤.
 void TextEditor::showPage() {
 	endIter = startIter;
 	int printLine = 1, printWord = 0;
@@ -206,9 +206,9 @@ void TextEditor::showPage() {
 }
 
 
-// ´ÙÀ½ÆäÀÌÁö·Î ³Ñ±æ ¶§ »ç¿ëÇÏ´Â ÇÔ¼öÀÌ´Ù.
-// ÀÏ¹İÀûÀÎ »óÈ²¿¡¼­´Â ÀÌÀüÆäÀÌÁöÀÇ ¸¶Áö¸· Ãâ·ÂÀÇ ´ÙÀ½ ´Ü¾î¸¦ ½ÃÀÛ ´Ü¾î·Î ¼³ÀåÇÏ°í,
-// ¸¸¾à ³²Àº Ãâ·Â lineÀÌ MAX_LINE(20) ¹Ì¸¸ÀÌ¶ó¸é ¸¶Áö¸· lineÀÌ 20¹øÂ° ÁÙ¿¡ À§Ä¡ÇÏµµ·Ï ½ÃÀÛ´Ü¾î¸¦ ÁöÁ¤ÇÑ´Ù.
+// ë‹¤ìŒí˜ì´ì§€ë¡œ ë„˜ê¸¸ ë•Œ ì‚¬ìš©í•˜ëŠ” í•¨ìˆ˜ì´ë‹¤.
+// ì¼ë°˜ì ì¸ ìƒí™©ì—ì„œëŠ” ì´ì „í˜ì´ì§€ì˜ ë§ˆì§€ë§‰ ì¶œë ¥ì˜ ë‹¤ìŒ ë‹¨ì–´ë¥¼ ì‹œì‘ ë‹¨ì–´ë¡œ ì„¤ì¥í•˜ê³ ,
+// ë§Œì•½ ë‚¨ì€ ì¶œë ¥ lineì´ MAX_LINE(20) ë¯¸ë§Œì´ë¼ë©´ ë§ˆì§€ë§‰ lineì´ 20ë²ˆì§¸ ì¤„ì— ìœ„ì¹˜í•˜ë„ë¡ ì‹œì‘ë‹¨ì–´ë¥¼ ì§€ì •í•œë‹¤.
 void TextEditor::nextPage() {
 	pageIter.push_back(startIter);
 	lineList.push_back(line-MAX_LINE);
@@ -234,9 +234,9 @@ void TextEditor::nextPage() {
 	showPage();
 }
 
-// ÀÌÀüÆäÀÌÁö·Î ³Ñ±æ ¶§ »ç¿ëÇÏ´Â ÇÔ¼öÀÌ´Ù.
-// pageIter¿¡ ÀÌÀü ÆäÀÌÁöÀÇ ½ÃÀÛÁÖ¼Ò°¡ ÀúÀåµÇ¾îÀÖ´Â °æ¿ì °¡Á®´Ù ¾²°í,
-// ¾ø´Â°æ¿ì ½ÃÀÛÇÒ ºÎºĞÀ» Ã£¾Æ¼­ Ãâ·ÂÇÑ´Ù.
+// ì´ì „í˜ì´ì§€ë¡œ ë„˜ê¸¸ ë•Œ ì‚¬ìš©í•˜ëŠ” í•¨ìˆ˜ì´ë‹¤.
+// pageIterì— ì´ì „ í˜ì´ì§€ì˜ ì‹œì‘ì£¼ì†Œê°€ ì €ì¥ë˜ì–´ìˆëŠ” ê²½ìš° ê°€ì ¸ë‹¤ ì“°ê³ ,
+// ì—†ëŠ”ê²½ìš° ì‹œì‘í•  ë¶€ë¶„ì„ ì°¾ì•„ì„œ ì¶œë ¥í•œë‹¤.
 void TextEditor::previousPage() {
 	if (pageIter.size() != 0) {
 		startIter = pageIter.back();
@@ -272,31 +272,31 @@ void TextEditor::previousPage() {
 	showPage();
 }
 
-// insertÀÇ °æ¿ì ÇöÀç ÆäÀÌÁöÀÇ ¿øÇÏ´Â line, byte¿¡ ´Ü¾î¸¦ »ğÀÔÇÏ´Â ÇÔ¼öÀÌ´Ù.
-// ÀÔ·ÂÇÒ À§Ä¡°¡ ¼ıÀÚ°¡ ¾Æ´Ñ°æ¿ì, MAX_LINE,MAX_BYTE¸¦ ³Ñ´Â°æ¿ì ÇÔ¼ö¸¦ ½ÇÇàÇÏÁö ¾Ê´Â´Ù.
+// insertì˜ ê²½ìš° í˜„ì¬ í˜ì´ì§€ì˜ ì›í•˜ëŠ” line, byteì— ë‹¨ì–´ë¥¼ ì‚½ì…í•˜ëŠ” í•¨ìˆ˜ì´ë‹¤.
+// ì…ë ¥í•  ìœ„ì¹˜ê°€ ìˆ«ìê°€ ì•„ë‹Œê²½ìš°, MAX_LINE,MAX_BYTEë¥¼ ë„˜ëŠ”ê²½ìš° í•¨ìˆ˜ë¥¼ ì‹¤í–‰í•˜ì§€ ì•ŠëŠ”ë‹¤.
 void TextEditor::insert(string order) {
 	setOrder(order);
 	for (int i = 0; i < orderF.length(); i++) {
 		if (orderF[i] < '0' || orderF[i] > '9') {
-			console = "insertÀÇ Ã¹¹øÂ° ÀÎÀÚ´Â ¼ıÀÚÀÔ´Ï´Ù.";
+			console = "insertì˜ ì²«ë²ˆì§¸ ì¸ìëŠ” ìˆ«ìì…ë‹ˆë‹¤.";
 			return;
 		}
 	}
 
 	for (int i = 0; i < orderS.length(); i++) {
 		if (orderS[i] < '0' || orderS[i] > '9') {
-			console = "insertÀÇ µÎ¹øÂ° ÀÎÀÚ´Â ¼ıÀÚÀÔ´Ï´Ù.";
+			console = "insertì˜ ë‘ë²ˆì§¸ ì¸ìëŠ” ìˆ«ìì…ë‹ˆë‹¤.";
 			return;
 		}
 	}
 
 	int line = stoi(orderF), byte = stoi(orderS);
 	if (line > MAX_LINE) {
-		console = "LineÀº ÃÖ´ë " + std::to_string(MAX_LINE) + "ÀÔ´Ï´Ù.";
+		console = "Lineì€ ìµœëŒ€ " + std::to_string(MAX_LINE) + "ì…ë‹ˆë‹¤.";
 		return;
 	}
 	if (byte > MAX_BYTE) {
-		console = "ByteÀº ÃÖ´ë " + std::to_string(MAX_BYTE) + "ÀÔ´Ï´Ù.";
+		console = "Byteì€ ìµœëŒ€ " + std::to_string(MAX_BYTE) + "ì…ë‹ˆë‹¤.";
 		return;
 	}
 	string insertString = orderT;
@@ -341,37 +341,37 @@ void TextEditor::insert(string order) {
 	line = tempLine;
 }
 
-// deleteCharÀÇ °æ¿ì ÇöÀç ÆäÀÌÁöÀÇ ¿øÇÏ´Â line, byteºÎÅÍ ÀÔ·ÂµÈ byte¸¸Å­ »èÁ¦ÇÏ´Â ÇÔ¼öÀÌ´Ù.
-// »èÁ¦ÇÒ À§Ä¡°¡ ¼ıÀÚ°¡ ¾Æ´Ñ°æ¿ì, MAX_LINE,MAX_BYTE¸¦ ³Ñ´Â°æ¿ì ÇÔ¼ö¸¦ ½ÇÇàÇÏÁö ¾Ê´Â´Ù.
+// deleteCharì˜ ê²½ìš° í˜„ì¬ í˜ì´ì§€ì˜ ì›í•˜ëŠ” line, byteë¶€í„° ì…ë ¥ëœ byteë§Œí¼ ì‚­ì œí•˜ëŠ” í•¨ìˆ˜ì´ë‹¤.
+// ì‚­ì œí•  ìœ„ì¹˜ê°€ ìˆ«ìê°€ ì•„ë‹Œê²½ìš°, MAX_LINE,MAX_BYTEë¥¼ ë„˜ëŠ”ê²½ìš° í•¨ìˆ˜ë¥¼ ì‹¤í–‰í•˜ì§€ ì•ŠëŠ”ë‹¤.
 void TextEditor::deleteChar(string order) {
 	setOrder(order);
 	for (int i = 0; i < orderF.length(); i++) {
 		if (orderF[i] < '0' || orderF[i] > '9') {
-			console = "deleteÀÇ µÎ¹øÂ° ÀÎÀÚ´Â ¼ıÀÚÀÔ´Ï´Ù.";
+			console = "deleteì˜ ë‘ë²ˆì§¸ ì¸ìëŠ” ìˆ«ìì…ë‹ˆë‹¤.";
 			return;
 		}
 	}
 
 	for (int i = 0; i < orderS.length(); i++) {
 		if (orderS[i] < '0' || orderS[i] > '9') {
-			console = "deleteÀÇ µÎ¹øÂ° ÀÎÀÚ´Â ¼ıÀÚÀÔ´Ï´Ù.";
+			console = "deleteì˜ ë‘ë²ˆì§¸ ì¸ìëŠ” ìˆ«ìì…ë‹ˆë‹¤.";
 			return;
 		}
 	}
 
 	for (int i = 0; i < orderT.length(); i++) {
 		if (orderT[i] < '0' || orderT[i] > '9') {
-			console = "deleteÀÇ ¼¼¹øÂ° ÀÎÀÚ´Â ¼ıÀÚÀÔ´Ï´Ù.";
+			console = "deleteì˜ ì„¸ë²ˆì§¸ ì¸ìëŠ” ìˆ«ìì…ë‹ˆë‹¤.";
 			return;
 		}
 	}
 	int line = stoi(orderF), byte = stoi(orderS), deleteByte = stoi(orderT);
 	if (line > MAX_LINE) {
-		console = "LineÀº ÃÖ´ë " + std::to_string(MAX_LINE) + "ÀÔ´Ï´Ù.";
+		console = "Lineì€ ìµœëŒ€ " + std::to_string(MAX_LINE) + "ì…ë‹ˆë‹¤.";
 		return;
 	}
 	if (byte > MAX_BYTE) {
-		console = "ByteÀº ÃÖ´ë " + std::to_string(MAX_BYTE) + "ÀÔ´Ï´Ù.";
+		console = "Byteì€ ìµœëŒ€ " + std::to_string(MAX_BYTE) + "ì…ë‹ˆë‹¤.";
 		return;
 	}
 
@@ -435,8 +435,8 @@ void TextEditor::deleteChar(string order) {
 	line = tempLine;
 }
 
-// changeÀÇ °æ¿ì text¿¡ Á¸ÀçÇÏ´Â »ç¿ëÀÚ°¡ ÀÔ·ÂÇÑ Ã¹¹øÂ° ´Ü¾î¸¦
-// ÀÔ·Â¹ŞÀº µÎ¹ø Â° ´Ü¾î·Î ¹Ù²Ù´Â ÇÔ¼öÀÌ´Ù.
+// changeì˜ ê²½ìš° textì— ì¡´ì¬í•˜ëŠ” ì‚¬ìš©ìê°€ ì…ë ¥í•œ ì²«ë²ˆì§¸ ë‹¨ì–´ë¥¼
+// ì…ë ¥ë°›ì€ ë‘ë²ˆ ì§¸ ë‹¨ì–´ë¡œ ë°”ê¾¸ëŠ” í•¨ìˆ˜ì´ë‹¤.
 void TextEditor::change(string order) {
 	setOrder(order);
 	string before = orderF;
@@ -457,8 +457,8 @@ void TextEditor::change(string order) {
 	showPage();
 }
 
-// searchÀÇ °æ¿ì ÀÔ·Â¹ŞÀº ´Ü¾î¸¦ text¿¡¼­ Ã£°í, ÀÖÀ» °æ¿ì ÇØ´ç ´Ü¾î°¡ ¸Ç Ã³À½¿¡ ³ª¿À°Ô ÇÑ´Ù.
-// ¸¸¾à ¾øÀ» °æ¿ì ÇØ´ç´Ü¾î°¡ Á¸ÀçÇÏÁö ¾Ê´Â´Ù°í consoleÀ» Ãâ·ÂÇÏ°í, Ã¹ÆäÀÌÁö¸¦ Ãâ·ÂÇÑ´Ù.
+// searchì˜ ê²½ìš° ì…ë ¥ë°›ì€ ë‹¨ì–´ë¥¼ textì—ì„œ ì°¾ê³ , ìˆì„ ê²½ìš° í•´ë‹¹ ë‹¨ì–´ê°€ ë§¨ ì²˜ìŒì— ë‚˜ì˜¤ê²Œ í•œë‹¤.
+// ë§Œì•½ ì—†ì„ ê²½ìš° í•´ë‹¹ë‹¨ì–´ê°€ ì¡´ì¬í•˜ì§€ ì•ŠëŠ”ë‹¤ê³  consoleì„ ì¶œë ¥í•˜ê³ , ì²«í˜ì´ì§€ë¥¼ ì¶œë ¥í•œë‹¤.
 void TextEditor::search(string order) {
 	setOrder(order);
 	string findString = orderF;
@@ -488,17 +488,17 @@ void TextEditor::search(string order) {
 		}
 	}
 	if (!searchOk) {
-		console = "ÇØ´ç ´Ü¾î°¡ text³»¿¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.";
+		console = "í•´ë‹¹ ë‹¨ì–´ê°€ textë‚´ì— ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.";
 		startIter = text.begin();
 		line = 0;
 	}
 	showPage();
 }
 
-// tertminate´Â ¿©·¯ °úÁ¤À» °ÅÄ£ text¸¦ ÀúÀåÇÏ°í, ÇÁ·Î±×·¥À» Á¾·áÇÏ´Â ÇÔ¼öÀÌ´Ù.
+// tertminateëŠ” ì—¬ëŸ¬ ê³¼ì •ì„ ê±°ì¹œ textë¥¼ ì €ì¥í•˜ê³ , í”„ë¡œê·¸ë¨ì„ ì¢…ë£Œí•˜ëŠ” í•¨ìˆ˜ì´ë‹¤.
 void TextEditor::terminate() {
 	ofstream writeFile;
-	writeFile.open("abc.txt");
+	writeFile.open("test.txt");
 	if (!writeFile.fail()) {
 		startIter = text.begin();
 		for (; startIter != text.end(); ++startIter) {
@@ -508,8 +508,8 @@ void TextEditor::terminate() {
 	}
 }
 
-// setSize´Â textÀÇ line, byte¸¦ ÃøÁ¤ÇÏ´Â ÇÔ¼öÀÌ´Ù.
-// Ã³À½ text¸¦ ÀÔ·Â¹ŞÀ»¶§, text°¡ ¼öÁ¤µÇ¾úÀ» ¶§ °ªÀÌ º¯°æµÇ¹Ç·Î ±×¶§ ½ÇÇàÇÑ´Ù.
+// setSizeëŠ” textì˜ line, byteë¥¼ ì¸¡ì •í•˜ëŠ” í•¨ìˆ˜ì´ë‹¤.
+// ì²˜ìŒ textë¥¼ ì…ë ¥ë°›ì„ë•Œ, textê°€ ìˆ˜ì •ë˜ì—ˆì„ ë•Œ ê°’ì´ ë³€ê²½ë˜ë¯€ë¡œ ê·¸ë•Œ ì‹¤í–‰í•œë‹¤.
 void TextEditor::setSize() {
 	int setLine = 0;
 	textSize = 0, textLine = 0;
@@ -528,8 +528,8 @@ void TextEditor::setSize() {
 	word = setLine;
 }
 
-// »ç¿ëÀÚ·ÎºÎÅÍ Á¤ÇØÁø ¸í·É¾î¸¦ ÀÔ·Â¹Ş°Ô µÇ¸é Á¤ÇØÁø ±Ô°İ¿¡ ¸Â°Ô ¸í·É¾î¸¦ ³ª´©´Â ÇÔ¼öÀÌ´Ù.
-// ÇöÀç ()¾È¿¡ ÃÖ´ë 3°³ÀÇ º¯¼ö°¡ µé¾î°¡´Ï »óÈ²¿¡ ¸Â°Ô 3°³·Î ³ª´©°Ô ÇÏ¿´´Ù.
+// ì‚¬ìš©ìë¡œë¶€í„° ì •í•´ì§„ ëª…ë ¹ì–´ë¥¼ ì…ë ¥ë°›ê²Œ ë˜ë©´ ì •í•´ì§„ ê·œê²©ì— ë§ê²Œ ëª…ë ¹ì–´ë¥¼ ë‚˜ëˆ„ëŠ” í•¨ìˆ˜ì´ë‹¤.
+// í˜„ì¬ ()ì•ˆì— ìµœëŒ€ 3ê°œì˜ ë³€ìˆ˜ê°€ ë“¤ì–´ê°€ë‹ˆ ìƒí™©ì— ë§ê²Œ 3ê°œë¡œ ë‚˜ëˆ„ê²Œ í•˜ì˜€ë‹¤.
 void TextEditor::setOrder(string order) {
 	int temp = 2, subStrNum = 0;
 	for (int i = 2; i < order.length(); i++) {
@@ -552,7 +552,7 @@ void TextEditor::setOrder(string order) {
 	}
 }
 
-// mainÀº ¿ÀÁ÷ Controller.run()À» ÅëÇØ Controller¸¦ ½ÇÇà½ÃÄÑÁÖ´Â ÀÏÀ» ÇÑ´Ù.
+// mainì€ ì˜¤ì§ Controller.run()ì„ í†µí•´ Controllerë¥¼ ì‹¤í–‰ì‹œì¼œì£¼ëŠ” ì¼ì„ í•œë‹¤.
 int main() {
 	TextEditor textEditor;
 	View view;
